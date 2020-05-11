@@ -14,6 +14,10 @@
 		78F0AC262469B78500E66D16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F0AC242469B78500E66D16 /* LaunchScreen.storyboard */; };
 		78F0AC362469B87100E66D16 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F0AC352469B87100E66D16 /* CloudKit.framework */; };
 		78F0AC382469BCDD00E66D16 /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F0AC372469BCDD00E66D16 /* Hype.swift */; };
+		78F0AC3A2469C2DB00E66D16 /* HypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F0AC392469C2DB00E66D16 /* HypeController.swift */; };
+		78F0AC3D2469C53C00E66D16 /* HypeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F0AC3C2469C53C00E66D16 /* HypeError.swift */; };
+		78F0AC3F2469CEE000E66D16 /* HypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F0AC3E2469CEE000E66D16 /* HypeTableViewController.swift */; };
+		78F0AC412469D0D500E66D16 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F0AC402469D0D500E66D16 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		78F0AC332469B81500E66D16 /* Hype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hype.entitlements; sourceTree = "<group>"; };
 		78F0AC352469B87100E66D16 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		78F0AC372469BCDD00E66D16 /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
+		78F0AC392469C2DB00E66D16 /* HypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeController.swift; sourceTree = "<group>"; };
+		78F0AC3C2469C53C00E66D16 /* HypeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeError.swift; sourceTree = "<group>"; };
+		78F0AC3E2469CEE000E66D16 /* HypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeTableViewController.swift; sourceTree = "<group>"; };
+		78F0AC402469D0D500E66D16 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				78F0AC332469B81500E66D16 /* Hype.entitlements */,
+				78F0AC3B2469C50B00E66D16 /* Helpers + Extentions */,
 				78F0AC302469B7A700E66D16 /* Controllers */,
 				78F0AC2F2469B79F00E66D16 /* Models */,
 				78F0AC2E2469B79800E66D16 /* Views */,
@@ -110,6 +119,7 @@
 		78F0AC312469B7B700E66D16 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				78F0AC3E2469CEE000E66D16 /* HypeTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -117,6 +127,7 @@
 		78F0AC322469B7C700E66D16 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				78F0AC392469C2DB00E66D16 /* HypeController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -127,6 +138,15 @@
 				78F0AC352469B87100E66D16 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		78F0AC3B2469C50B00E66D16 /* Helpers + Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				78F0AC3C2469C53C00E66D16 /* HypeError.swift */,
+				78F0AC402469D0D500E66D16 /* DateExtension.swift */,
+			);
+			path = "Helpers + Extentions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78F0AC3D2469C53C00E66D16 /* HypeError.swift in Sources */,
+				78F0AC412469D0D500E66D16 /* DateExtension.swift in Sources */,
+				78F0AC3F2469CEE000E66D16 /* HypeTableViewController.swift in Sources */,
 				78F0AC1A2469B78400E66D16 /* AppDelegate.swift in Sources */,
+				78F0AC3A2469C2DB00E66D16 /* HypeController.swift in Sources */,
 				78F0AC1C2469B78400E66D16 /* SceneDelegate.swift in Sources */,
 				78F0AC382469BCDD00E66D16 /* Hype.swift in Sources */,
 			);
