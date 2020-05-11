@@ -9,21 +9,24 @@
 /* Begin PBXBuildFile section */
 		78F0AC1A2469B78400E66D16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F0AC192469B78400E66D16 /* AppDelegate.swift */; };
 		78F0AC1C2469B78400E66D16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F0AC1B2469B78400E66D16 /* SceneDelegate.swift */; };
-		78F0AC1E2469B78400E66D16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F0AC1D2469B78400E66D16 /* ViewController.swift */; };
 		78F0AC212469B78400E66D16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F0AC1F2469B78400E66D16 /* Main.storyboard */; };
 		78F0AC232469B78500E66D16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78F0AC222469B78500E66D16 /* Assets.xcassets */; };
 		78F0AC262469B78500E66D16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F0AC242469B78500E66D16 /* LaunchScreen.storyboard */; };
+		78F0AC362469B87100E66D16 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F0AC352469B87100E66D16 /* CloudKit.framework */; };
+		78F0AC382469BCDD00E66D16 /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F0AC372469BCDD00E66D16 /* Hype.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		78F0AC162469B78400E66D16 /* Hype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F0AC192469B78400E66D16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78F0AC1B2469B78400E66D16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		78F0AC1D2469B78400E66D16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		78F0AC202469B78400E66D16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78F0AC222469B78500E66D16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78F0AC252469B78500E66D16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78F0AC272469B78500E66D16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78F0AC332469B81500E66D16 /* Hype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hype.entitlements; sourceTree = "<group>"; };
+		78F0AC352469B87100E66D16 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		78F0AC372469BCDD00E66D16 /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78F0AC362469B87100E66D16 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +46,7 @@
 			children = (
 				78F0AC182469B78400E66D16 /* Hype */,
 				78F0AC172469B78400E66D16 /* Products */,
+				78F0AC342469B87100E66D16 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +61,72 @@
 		78F0AC182469B78400E66D16 /* Hype */ = {
 			isa = PBXGroup;
 			children = (
+				78F0AC332469B81500E66D16 /* Hype.entitlements */,
+				78F0AC302469B7A700E66D16 /* Controllers */,
+				78F0AC2F2469B79F00E66D16 /* Models */,
+				78F0AC2E2469B79800E66D16 /* Views */,
+				78F0AC2D2469B79100E66D16 /* Resources */,
+			);
+			path = Hype;
+			sourceTree = "<group>";
+		};
+		78F0AC2D2469B79100E66D16 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				78F0AC192469B78400E66D16 /* AppDelegate.swift */,
 				78F0AC1B2469B78400E66D16 /* SceneDelegate.swift */,
-				78F0AC1D2469B78400E66D16 /* ViewController.swift */,
-				78F0AC1F2469B78400E66D16 /* Main.storyboard */,
 				78F0AC222469B78500E66D16 /* Assets.xcassets */,
 				78F0AC242469B78500E66D16 /* LaunchScreen.storyboard */,
 				78F0AC272469B78500E66D16 /* Info.plist */,
 			);
-			path = Hype;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		78F0AC2E2469B79800E66D16 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78F0AC1F2469B78400E66D16 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		78F0AC2F2469B79F00E66D16 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				78F0AC372469BCDD00E66D16 /* Hype.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		78F0AC302469B7A700E66D16 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				78F0AC322469B7C700E66D16 /* Model Controller */,
+				78F0AC312469B7B700E66D16 /* View Controller */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		78F0AC312469B7B700E66D16 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		78F0AC322469B7C700E66D16 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		78F0AC342469B87100E66D16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78F0AC352469B87100E66D16 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78F0AC1E2469B78400E66D16 /* ViewController.swift in Sources */,
 				78F0AC1A2469B78400E66D16 /* AppDelegate.swift in Sources */,
 				78F0AC1C2469B78400E66D16 /* SceneDelegate.swift in Sources */,
+				78F0AC382469BCDD00E66D16 /* Hype.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,14 +346,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hype/Hype.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Hype/Info.plist;
+				DEVELOPMENT_TEAM = 6FR69MK7S5;
+				INFOPLIST_FILE = Hype/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.WBB.Hype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -301,8 +367,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hype/Hype.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Hype/Info.plist;
+				DEVELOPMENT_TEAM = 6FR69MK7S5;
+				INFOPLIST_FILE = Hype/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
