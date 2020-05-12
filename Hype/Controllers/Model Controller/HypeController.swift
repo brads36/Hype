@@ -53,4 +53,49 @@ class HypeController {
             completion(.success(hypes))
         }
     }
+    
+    func update(_ hype: Hype, completion: @escaping (Result<Hype?, HypeError>) ->Void)  {
+        // Step 3: Create the record to save(update)
+        let record = CKRecord(hype: hype)
+        
+        // Step 2: Create our operation
+        let operation = CKModifyRecordsOperation(recordsToSave: [record])
+        // Step 4: Set the properies of the operation
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.modifyRecordsCompletionBlock = {(records, _, error) in
+            if let error = error {
+                return completion(.failure(.ckError(error)))
+            }
+            
+            guard let record = records?.first,
+            let updatedHype = Hype(ckRecord: record)
+                else { return completion(.failure(.couldNotUnwrap))}
+            print("Updated \(record.recordID) successfully in cloudkit")
+            completion(.success(updatedHype))
+        }
+        // Step 1: add operation to the database
+        publicDB.add(operation)
+    }
+    
+    func delete(_ hype: Hype, completion: @escaping (Result<Bool, HypeError>) -> Void) {
+        // Step 2: Create our operation
+        let operation = CKModifyRecordsOperation(recordIDsToDelete: [hype.recordID])
+        // Step 3: set properties of Operation
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.modifyRecordsCompletionBlock = {(_, recordIDs, error) in
+            if let error = error {
+                return completion(.failure(.ckError(error)))
+            }
+            if recordIDs?.count == 0 {
+                print("Successfully deleted record from cloudkit")
+                completion(.success(true))
+            } else {
+                return completion(.failure(.unexpectedRecordsFound))
+            }
+        }
+        // Step 1: add operation to the database
+        publicDB.add(operation)
+    }
 }
