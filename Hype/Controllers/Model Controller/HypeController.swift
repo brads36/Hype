@@ -84,11 +84,11 @@ class HypeController {
         // Step 3: set properties of Operation
         operation.savePolicy = .changedKeys
         operation.qualityOfService = .userInteractive
-        operation.modifyRecordsCompletionBlock = {(_, recordIDs, error) in
+        operation.modifyRecordsCompletionBlock = {(records, _, error) in
             if let error = error {
                 return completion(.failure(.ckError(error)))
             }
-            if recordIDs?.count == 0 {
+            if records?.count == 0 {
                 print("Successfully deleted record from cloudkit")
                 completion(.success(true))
             } else {
@@ -97,5 +97,25 @@ class HypeController {
         }
         // Step 1: add operation to the database
         publicDB.add(operation)
+    }
+    
+    // MARK: - Subscription Method
+    func subscribeToRemoteNotifications(completion: @escaping (Error?) -> Void) {
+        
+        let hypeSubPredicate = NSPredicate(value: true)
+        let subscription = CKQuerySubscription(recordType: HypeStrings.recordTypeKey, predicate: hypeSubPredicate, options: [.firesOnRecordCreation, .firesOnRecordUpdate])
+        let notificationInfo = CKQuerySubscription.NotificationInfo()
+        notificationInfo.title = "CHOO CHOO"
+        notificationInfo.alertBody = "Can't Stop the Hype Train!!"
+        notificationInfo.shouldBadge = true
+        notificationInfo.soundName = "default"
+        subscription.notificationInfo = notificationInfo
+            
+        publicDB.save(subscription) { (_, error) in
+            if let error = error {
+                completion(error)
+            }
+            completion(nil)
+        }
     }
 }

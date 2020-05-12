@@ -22,7 +22,7 @@ class HypeTableViewController: UITableViewController {
     
     // MARK: - Actions
     @IBAction func addButtonTapped(_ sender: Any) {
-        presentAddHypeAlert()
+        presentHypeAlert(for: nil)
     }
     
     // MARK: - Class Methods
@@ -70,41 +70,72 @@ class HypeTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hype = HypeController.sharedInstance.hypes[indexPath.row]
+        presentHypeAlert(for: hype)
+    }
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let hypeToDelete = HypeController.sharedInstance.hypes[indexPath.row]
+            guard let index = HypeController.sharedInstance.hypes.firstIndex(of: hypeToDelete)
+                else { return }
+            HypeController.sharedInstance.delete(hypeToDelete) { (result) in
+                switch result {
+                case .success(let success):
+                    if success {
+                        HypeController.sharedInstance.hypes.remove(at: index)
+                        DispatchQueue.main.async {
+                            tableView.deleteRows(at: [indexPath], with: .fade)
+                        }
+                    }
+                case .failure(let error):
+                    print(error.errorDescription)
+                }
+            }
+        }
     }
-    */
     
 } // End of Class
 
 extension HypeTableViewController {
-    func presentAddHypeAlert() {
+    func presentHypeAlert(for hype: Hype?) {
         let alertController = UIAlertController(title: "Get Hype!", message: "What is Hype may never die!", preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
             textField.placeholder = "What is hype today?"
             textField.autocorrectionType = .yes
             textField.autocapitalizationType = .sentences
+            if let hype = hype {
+            textField.text = hype.body
+            }
         }
         
         let addHypeAction = UIAlertAction(title: "Send", style: .default) { (_) in
             guard let text = alertController.textFields?.first?.text, !text.isEmpty else { return }
-            HypeController.sharedInstance.saveHype(with: text) { (result) in
-                switch result {
-                case .success(let hype):
-                    guard let hype = hype else { return }
-                    HypeController.sharedInstance.hypes.insert(hype, at: 0)
-                    self.updateViews()
-                case .failure(let error):
-                    print(error.errorDescription)
+            
+            if let hype = hype {
+                hype.body = text
+                HypeController.sharedInstance.update(hype) { (result) in
+                    switch result {
+                    case .success(_):
+                        self.updateViews()
+                    case .failure(let error):
+                        print(error.errorDescription)
+                    }
+                }
+            } else {
+            
+                HypeController.sharedInstance.saveHype(with: text) { (result) in
+                    switch result {
+                    case .success(let hype):
+                        guard let hype = hype else { return }
+                        HypeController.sharedInstance.hypes.insert(hype, at: 0)
+                        self.updateViews()
+                    case .failure(let error):
+                        print(error.errorDescription)
+                    }
                 }
             }
         }
