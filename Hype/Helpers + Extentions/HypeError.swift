@@ -13,6 +13,7 @@ enum HypeError: LocalizedError {
     case ckError(Error)
     case couldNotUnwrap
     case unexpectedRecordsFound
+    case noUserFound
     
     var errorDescription: String {
         switch self {
@@ -22,7 +23,8 @@ enum HypeError: LocalizedError {
             return "Unable to get this Hype... Which is not very hype..."
         case .unexpectedRecordsFound:
             return "Unexpected records were return when trying to delete."
-            
+        case .noUserFound:
+            return "We were unable to find a user"
         }
     }
 }
