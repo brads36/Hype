@@ -22,28 +22,38 @@ class SignUpViewController: UIViewController {
     
     // MARK: - Aactions
     @IBAction func signUpButtonTapped(_ sender: Any) {
+        guard let username = usernameTextField.text, !username.isEmpty,
+            let bio = bioTextField.text else { return }
+        UserController.sharedInstance.createUser(username: username, bio: bio) { [weak self] (result) in
+            switch result {
+            case .success(_):
+                self?.presentHypeListVC()
+            case .failure(let error):
+                print(error)
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
+        }
     }
     
     // MARK: - Helper Method
     func fetchUser() {
-        UserController.sharedInstance.fetchUser { (result) in
+        UserController.sharedInstance.fetchUser { [weak self] (result) in
             switch result {
             case .success(_):
-                <#code#>
+                self?.presentHypeListVC()
             case .failure(let error):
+                print(error)
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func presentHypeListVC() {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "HypeList", bundle: nil)
+            guard let viewController = storyboard.instantiateInitialViewController() else { return }
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: true)
+        }
     }
-    */
-
 }
