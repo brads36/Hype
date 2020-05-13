@@ -73,12 +73,15 @@ class HypeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hype = HypeController.sharedInstance.hypes[indexPath.row]
+        guard hype.userReference?.recordID == UserController.sharedInstance.currentUser?.recordID else { return }
         presentHypeAlert(for: hype)
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             let hypeToDelete = HypeController.sharedInstance.hypes[indexPath.row]
+            guard hypeToDelete.userReference?.recordID == UserController.sharedInstance.currentUser?.recordID else { return }
             guard let index = HypeController.sharedInstance.hypes.firstIndex(of: hypeToDelete)
                 else { return }
             HypeController.sharedInstance.delete(hypeToDelete) { (result) in

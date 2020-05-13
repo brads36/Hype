@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
         fetchUser()
     }
     
-    // MARK: - Aactions
+    // MARK: - Actions
     @IBAction func signUpButtonTapped(_ sender: Any) {
         guard let username = usernameTextField.text, !username.isEmpty,
             let bio = bioTextField.text else { return }

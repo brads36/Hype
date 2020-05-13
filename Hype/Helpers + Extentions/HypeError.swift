@@ -14,6 +14,7 @@ enum HypeError: LocalizedError {
     case couldNotUnwrap
     case unexpectedRecordsFound
     case noUserFound
+    case unableToEdit
     
     var errorDescription: String {
         switch self {
@@ -25,6 +26,8 @@ enum HypeError: LocalizedError {
             return "Unexpected records were return when trying to delete."
         case .noUserFound:
             return "We were unable to find a user"
+        case .unableToEdit:
+            return "You are not able to edit this post"
         }
     }
 }

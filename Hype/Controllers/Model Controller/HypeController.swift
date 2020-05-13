@@ -22,7 +22,11 @@ class HypeController {
     
     // MARK: - CRUD
     func saveHype(with text: String, completion: @escaping (Result<Hype?, HypeError>) -> Void)  {
-        let newHype = Hype(body: text)
+       
+        guard let currentUser = UserController.sharedInstance.currentUser else { return completion(.failure(.noUserFound))}
+        
+        let reference = CKRecord.Reference(recordID: currentUser.recordID, action: .none)
+        let newHype = Hype(body: text, userReference: reference)
         let hypeRecord = CKRecord(hype: newHype)
         publicDB.save(hypeRecord) { (record, error) in
             if let error = error {
@@ -55,6 +59,7 @@ class HypeController {
     }
     
     func update(_ hype: Hype, completion: @escaping (Result<Hype?, HypeError>) ->Void)  {
+        guard hype.userReference?.recordID == UserController.sharedInstance.currentUser?.recordID else { return completion(.failure(.unableToEdit))}
         // Step 3: Create the record to save(update)
         let record = CKRecord(hype: hype)
         
