@@ -55,7 +55,7 @@ class UserController {
         fetchAppleUserReference { [weak self] (reference) in
             guard let reference = reference else { return completion(.failure(.noUserFound))}
             // Step 3: Define the predicate for the query
-            let predicate = NSPredicate(format: "%k == %@", argumentArray: [UserStrings.appleUserReferenceKey, reference])
+            let predicate = NSPredicate(format: "%K == %@", argumentArray: [UserStrings.appleUserReferenceKey, reference])
             // Step 2: Define Query to be performed
             let query = CKQuery(recordType: UserStrings.recordTypeKey, predicate: predicate)
             // Step 1: Call perform method, perform Query

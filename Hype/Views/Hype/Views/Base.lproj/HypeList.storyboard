@@ -124,6 +124,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="XY7-Co-0KD" firstAttribute="trailing" secondItem="c7l-t5-rg3" secondAttribute="trailing" constant="24" id="2Dz-zt-xEO"/>
                             <constraint firstItem="QRs-a6-qb2" firstAttribute="top" secondItem="XY7-Co-0KD" secondAttribute="top" constant="24" id="H0E-dv-WQo"/>
@@ -133,6 +134,9 @@
                             <constraint firstItem="QRs-a6-qb2" firstAttribute="leading" secondItem="XY7-Co-0KD" secondAttribute="leading" constant="24" id="yJz-lE-fx5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XY7-Co-0KD"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="0Hu-3J-t68" appends="YES" id="hbx-Tq-FIg"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="hypeTextField" destination="jFv-X1-pGc" id="Rel-TG-74I"/>
@@ -140,6 +144,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LP2-UJ-0Dg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0Hu-3J-t68">
+                    <connections>
+                        <action selector="hypePhotoTapGesture:" destination="dm8-Xu-3v9" id="pHj-68-9oD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1661" y="70"/>
         </scene>

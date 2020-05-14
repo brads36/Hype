@@ -33,10 +33,13 @@ class SignUpViewController: UIViewController {
             case .success(_):
                 self?.presentHypeListVC()
             case .failure(let error):
-                print(error)
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
         }
+    }
+    
+    @IBAction func signUpTapGesture(_ sender: Any) {
+        hideKeyboard()
     }
     
     // MARK: - Helper Method
@@ -78,5 +81,17 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController: PhotoPickerDelegate {
     func photoPickerSelected(image: UIImage) {
         self.profilePhoto = image
+    }
+}
+
+extension SignUpViewController {
+
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissMyKeyboard() {
+        view.endEditing(true)
     }
 }

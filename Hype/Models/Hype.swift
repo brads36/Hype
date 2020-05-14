@@ -36,6 +36,7 @@ class Hype {
     var userReference: CKRecord.Reference?
     var photoAsset: CKAsset? {
         get {
+            guard photoData != nil else { return nil }
             let tempDirectory = NSTemporaryDirectory()
             let tempDirectoryURL = URL(fileURLWithPath: tempDirectory)
             let fileURL = tempDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")

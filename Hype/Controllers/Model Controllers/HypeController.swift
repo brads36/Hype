@@ -22,7 +22,7 @@ class HypeController {
     
     
     // MARK: - CRUD
-    func saveHype(with text: String, hypePhoto: UIImage ,completion: @escaping (Result<Hype?, HypeError>) -> Void)  {
+    func saveHype(with text: String, hypePhoto: UIImage? ,completion: @escaping (Result<Hype?, HypeError>) -> Void)  {
        
         guard let currentUser = UserController.sharedInstance.currentUser else { return completion(.failure(.noUserFound))}
         
