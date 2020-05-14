@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78C85673246DAF7D00F834D4 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C85672246DAF7C00F834D4 /* PhotoPickerViewController.swift */; };
 		78CFD50E246C535300C5BC53 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CFD50D246C535300C5BC53 /* User.swift */; };
 		78CFD510246C57FD00C5BC53 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CFD50F246C57FD00C5BC53 /* UserController.swift */; };
 		78CFD512246C6C2200C5BC53 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CFD511246C6C2200C5BC53 /* SignUpViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78C85672246DAF7C00F834D4 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		78CFD50D246C535300C5BC53 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		78CFD50F246C57FD00C5BC53 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		78CFD511246C6C2200C5BC53 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -120,28 +122,29 @@
 		78F0AC302469B7A700E66D16 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				78F0AC322469B7C700E66D16 /* Model Controller */,
-				78F0AC312469B7B700E66D16 /* View Controller */,
+				78F0AC322469B7C700E66D16 /* Model Controllers */,
+				78F0AC312469B7B700E66D16 /* View Controllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		78F0AC312469B7B700E66D16 /* View Controller */ = {
+		78F0AC312469B7B700E66D16 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				78F0AC3E2469CEE000E66D16 /* HypeTableViewController.swift */,
 				78CFD511246C6C2200C5BC53 /* SignUpViewController.swift */,
+				78C85672246DAF7C00F834D4 /* PhotoPickerViewController.swift */,
 			);
-			path = "View Controller";
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		78F0AC322469B7C700E66D16 /* Model Controller */ = {
+		78F0AC322469B7C700E66D16 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				78F0AC392469C2DB00E66D16 /* HypeController.swift */,
 				78CFD50F246C57FD00C5BC53 /* UserController.swift */,
 			);
-			path = "Model Controller";
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		78F0AC342469B87100E66D16 /* Frameworks */ = {
@@ -241,6 +244,7 @@
 				78F0AC1A2469B78400E66D16 /* AppDelegate.swift in Sources */,
 				78CFD50E246C535300C5BC53 /* User.swift in Sources */,
 				78F0AC3A2469C2DB00E66D16 /* HypeController.swift in Sources */,
+				78C85673246DAF7D00F834D4 /* PhotoPickerViewController.swift in Sources */,
 				78F0AC1C2469B78400E66D16 /* SceneDelegate.swift in Sources */,
 				78F0AC382469BCDD00E66D16 /* Hype.swift in Sources */,
 			);

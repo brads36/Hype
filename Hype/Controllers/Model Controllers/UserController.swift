@@ -8,6 +8,7 @@
 
 import Foundation
 import CloudKit
+import UIKit
 
 class UserController {
     
@@ -21,13 +22,13 @@ class UserController {
     let publicDB = CKContainer.default().publicCloudDatabase
     
     // MARK: - CRUD
-    func createUser(username: String, bio: String, completion: @escaping (Result<Bool, HypeError>) -> Void) {
+    func createUser(username: String, bio: String, profilePhoto: UIImage?, completion: @escaping (Result<Bool, HypeError>) -> Void) {
         
         // Step 4: Fetching the user reference to use it to create a new newUser
         fetchAppleUserReference { [weak self] (reference) in
             guard let reference = reference else { return completion(.failure(.noUserFound))}
             // Step 3: Initialize a newUser with the users reference
-            let newUser = User(username: username, bio: bio, appleUserReference: reference)
+            let newUser = User(username: username, bio: bio, profilePhoto: profilePhoto, appleUserReference: reference)
             // Step 2: Create the CKRecord to be saved from the newUser
             let record = CKRecord(user: newUser)
             // Step 1: Call the save method, to save the newly created ckRecord

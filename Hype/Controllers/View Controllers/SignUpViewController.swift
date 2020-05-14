@@ -13,18 +13,22 @@ class SignUpViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var bioTextField: UITextField!
+    @IBOutlet weak var photoContainerView: UIView!
     
-
+    // MARK: - Properties
+    var profilePhoto: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUser()
+        setupViews()
     }
     
     // MARK: - Actions
     @IBAction func signUpButtonTapped(_ sender: Any) {
         guard let username = usernameTextField.text, !username.isEmpty,
             let bio = bioTextField.text else { return }
-        UserController.sharedInstance.createUser(username: username, bio: bio) { [weak self] (result) in
+        UserController.sharedInstance.createUser(username: username, bio: bio, profilePhoto: profilePhoto) { [weak self] (result) in
             switch result {
             case .success(_):
                 self?.presentHypeListVC()
@@ -36,6 +40,11 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - Helper Method
+    func setupViews() {
+        photoContainerView.layer.cornerRadius = photoContainerView.frame.height / 2
+        photoContainerView.clipsToBounds = true
+    }
+    
     func fetchUser() {
         UserController.sharedInstance.fetchUser { [weak self] (result) in
             switch result {
@@ -55,5 +64,19 @@ class SignUpViewController: UIViewController {
             viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: true)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhotoPickerVC" {
+            guard let destinationVC = segue.destination as? PhotoPickerViewController else { return }
+            destinationVC.delegate = self
+        }
+    }
+    
+} // End of Class
+
+extension SignUpViewController: PhotoPickerDelegate {
+    func photoPickerSelected(image: UIImage) {
+        self.profilePhoto = image
     }
 }
