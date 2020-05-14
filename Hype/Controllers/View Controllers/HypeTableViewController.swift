@@ -12,6 +12,7 @@ class HypeTableViewController: UITableViewController {
     
     // MARK: - Properties
     var refresh: UIRefreshControl = UIRefreshControl()
+    var hypePhoto: UIImage?
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -130,7 +131,7 @@ extension HypeTableViewController {
                 }
             } else {
             
-                HypeController.sharedInstance.saveHype(with: text) { (result) in
+                HypeController.sharedInstance.saveHype(with: text, hypePhoto: self.hypePhoto) { (result) in
                     switch result {
                     case .success(let hype):
                         guard let hype = hype else { return }

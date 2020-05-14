@@ -8,6 +8,7 @@
 
 import Foundation
 import CloudKit
+import UIKit
 
 class HypeController {
     
@@ -21,12 +22,12 @@ class HypeController {
     
     
     // MARK: - CRUD
-    func saveHype(with text: String, completion: @escaping (Result<Hype?, HypeError>) -> Void)  {
+    func saveHype(with text: String, hypePhoto: UIImage ,completion: @escaping (Result<Hype?, HypeError>) -> Void)  {
        
         guard let currentUser = UserController.sharedInstance.currentUser else { return completion(.failure(.noUserFound))}
         
         let reference = CKRecord.Reference(recordID: currentUser.recordID, action: .none)
-        let newHype = Hype(body: text, userReference: reference)
+        let newHype = Hype(body: text, hypePhoto: hypePhoto ,userReference: reference)
         let hypeRecord = CKRecord(hype: newHype)
         publicDB.save(hypeRecord) { (record, error) in
             if let error = error {

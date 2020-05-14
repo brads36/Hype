@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		78C85673246DAF7D00F834D4 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C85672246DAF7C00F834D4 /* PhotoPickerViewController.swift */; };
+		78C85676246DC45A00F834D4 /* PhotoPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C85674246DC45A00F834D4 /* PhotoPicker.storyboard */; };
+		78C85678246DC57600F834D4 /* HypePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C85677246DC57600F834D4 /* HypePhotoViewController.swift */; };
 		78CFD50E246C535300C5BC53 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CFD50D246C535300C5BC53 /* User.swift */; };
 		78CFD510246C57FD00C5BC53 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CFD50F246C57FD00C5BC53 /* UserController.swift */; };
 		78CFD512246C6C2200C5BC53 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CFD511246C6C2200C5BC53 /* SignUpViewController.swift */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		78C85672246DAF7C00F834D4 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		78C85675246DC45A00F834D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Hype/Views/Base.lproj/PhotoPicker.storyboard; sourceTree = "<group>"; };
+		78C85677246DC57600F834D4 /* HypePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypePhotoViewController.swift; sourceTree = "<group>"; };
 		78CFD50D246C535300C5BC53 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		78CFD50F246C57FD00C5BC53 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		78CFD511246C6C2200C5BC53 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			children = (
 				78CFD513246C6E5700C5BC53 /* HypeList.storyboard */,
 				78F0AC1F2469B78400E66D16 /* Main.storyboard */,
+				78C85674246DC45A00F834D4 /* PhotoPicker.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 				78F0AC3E2469CEE000E66D16 /* HypeTableViewController.swift */,
 				78CFD511246C6C2200C5BC53 /* SignUpViewController.swift */,
 				78C85672246DAF7C00F834D4 /* PhotoPickerViewController.swift */,
+				78C85677246DC57600F834D4 /* HypePhotoViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -223,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78CFD515246C6E5700C5BC53 /* HypeList.storyboard in Resources */,
+				78C85676246DC45A00F834D4 /* PhotoPicker.storyboard in Resources */,
 				78F0AC262469B78500E66D16 /* LaunchScreen.storyboard in Resources */,
 				78F0AC232469B78500E66D16 /* Assets.xcassets in Resources */,
 				78F0AC212469B78400E66D16 /* Main.storyboard in Resources */,
@@ -243,6 +250,7 @@
 				78CFD512246C6C2200C5BC53 /* SignUpViewController.swift in Sources */,
 				78F0AC1A2469B78400E66D16 /* AppDelegate.swift in Sources */,
 				78CFD50E246C535300C5BC53 /* User.swift in Sources */,
+				78C85678246DC57600F834D4 /* HypePhotoViewController.swift in Sources */,
 				78F0AC3A2469C2DB00E66D16 /* HypeController.swift in Sources */,
 				78C85673246DAF7D00F834D4 /* PhotoPickerViewController.swift in Sources */,
 				78F0AC1C2469B78400E66D16 /* SceneDelegate.swift in Sources */,
@@ -253,6 +261,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		78C85674246DC45A00F834D4 /* PhotoPicker.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78C85675246DC45A00F834D4 /* Base */,
+			);
+			name = PhotoPicker.storyboard;
+			sourceTree = "<group>";
+		};
 		78CFD513246C6E5700C5BC53 /* HypeList.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
